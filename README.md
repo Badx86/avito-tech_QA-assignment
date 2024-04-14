@@ -1,11 +1,11 @@
 <div align="center">
     <table>
         <tr>
-        <td align="center"><a href="https://github.com/Badx86/avito-tech_QA-assignment/actions/workflows/CI.yml">
-            <img alt="Avito-tech" src="https://github.com/Badx86/avito-tech_QA-assignment/actions/workflows/CI.yml/badge.svg">
+        <td align="center"><a href="https://github.com/Badx86/avito-tech_QA-assignment/actions/workflows/Avito-tech.yml">
+            <img alt="Avito-tech" src="https://github.com/Badx86/avito-tech_QA-assignment/actions/workflows/Avito-tech.yml/badge.svg">
         </a></td>  
-        <td align="center"><a href="https://github.com/Badx86/avito-tech_QA-assignment/actions/workflows/python-app.yml">
-            <img alt="Avito-tech-scheduled" src="https://github.com/Badx86/avito-tech_QA-assignment/actions/workflows/python-app.yml/badge.svg">
+        <td align="center"><a href="https://github.com/Badx86/avito-tech_QA-assignment/actions/workflows/Avito-tech-scheduled.yml">
+            <img alt="Avito-tech-scheduled" src="https://github.com/Badx86/avito-tech_QA-assignment/actions/workflows/Avito-tech-scheduled.yml/badge.svg">
         </a></td>  
         <td align="center"><a href="https://badx86.github.io/avito-tech_QA-assignment/">
             <img alt="Allure-report" src="https://img.shields.io/badge/Allure%20Report-deployed-green">
