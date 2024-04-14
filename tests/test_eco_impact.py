@@ -44,6 +44,41 @@ def load_mock_data(file_path):
     "test_data_file, counter_selector, output_filename",
     [
         (
+            "data_requests/test_data_01.json",
+            EcoImpactPage.IMPACT_ITEMS_BLOCK,
+            "TC_04.png",
+        ),
+        (
+            "data_requests/test_data_02.json",
+            EcoImpactPage.IMPACT_ITEMS_BLOCK,
+            "TC_05.png",
+        ),
+        (
+            "data_requests/test_data_03.json",
+            EcoImpactPage.IMPACT_ITEMS_BLOCK,
+            "TC_06.png",
+        ),
+        (
+            "data_requests/test_data_04.json",
+            EcoImpactPage.IMPACT_ITEMS_BLOCK,
+            "TC_07.png",
+        ),
+        (
+            "data_requests/test_data_05.json",
+            EcoImpactPage.IMPACT_ITEMS_BLOCK,
+            "TC_08.png",
+        ),
+        (
+            "data_requests/test_data_06.json",
+            EcoImpactPage.IMPACT_ITEMS_BLOCK,
+            "TC_09.png",
+        ),
+        (
+            "data_requests/test_data_07.json",
+            EcoImpactPage.IMPACT_ITEMS_BLOCK,
+            "TC_10.png",
+        ),
+        (
             "data_requests/test_data_08.json",
             EcoImpactPage.IMPACT_ITEMS_BLOCK,
             "TC_11.png",
