@@ -1,27 +1,31 @@
+import allure
+
+
 class BasePage:
     def __init__(self, page):
         self.page = page
 
+    @allure.step("Переход по URL: {url}")
     def go_to(self, url):
         self.page.goto(url)
 
+    @allure.step("Получение заголовка страницы")
     def get_title(self):
         return self.page.title()
 
+    @allure.step("Поиск элемента по селектору: {selector}")
     def find_element(self, selector):
         """
         Найти элемент по селектору.
-
         :param selector: CSS-селектор для поиска элемента
         :return: Элемент (объект типа ElementHandle)
         """
         return self.page.query_selector(selector)
 
-    # Можно добавить метод для поиска всех элементов по селектору
+    @allure.step("Поиск всех элементов по селектору: {selector}")
     def find_elements(self, selector):
         """
         Найти все элементы по селектору.
-
         :param selector: CSS-селектор для поиска элементов
         :return: Список элементов (объекты типа ElementHandle)
         """
