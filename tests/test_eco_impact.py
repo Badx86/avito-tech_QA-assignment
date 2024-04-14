@@ -1,15 +1,12 @@
 import json
+import allure
 import pytest
 from pages.eco_impact_page import EcoImpactPage
 
 # URL страницы с счетчиками экологического вклада
 ECO_IMPACT_URL = "https://www.avito.ru/avito-care/eco-impact"
 
-# Тест для снимка скриншота счетчика CO2
-import allure
 
-
-# Оформляем тесты с помощью декораторов feature и story от Allure
 @allure.feature('Страница экологического воздействия')
 @allure.story('Скриншот счетчика CO2')
 def test_co2_counter_screenshot(page):
@@ -23,25 +20,30 @@ def test_co2_counter_screenshot(page):
         co2_counter.screenshot(path="output/TC_01_co2_counter.png")
 
 
-# Повторите подобные шаблоны для других функций тестирования
-
-
-# Тест для снимка скриншота счетчика воды
+@allure.feature('Страница экологического воздействия')
+@allure.story('Скриншот счетчика воды')
 def test_water_counter_screenshot(page):
-    eco_page = EcoImpactPage(page)
-    eco_page.go_to(ECO_IMPACT_URL)
-    water_counter = eco_page.get_water_counter()
-    assert water_counter, "The water counter element was not found on the page."
-    water_counter.screenshot(path="output/TC_02_water_counter.png")
+    with allure.step("Переход на страницу экологического воздействия"):
+        eco_page = EcoImpactPage(page)
+        eco_page.go_to(ECO_IMPACT_URL)
+    with allure.step("Получение счетчика воды"):
+        water_counter = eco_page.get_water_counter()
+        assert water_counter, "The water counter element was not found on the page."
+    with allure.step("Создание скриншота счетчика воды"):
+        water_counter.screenshot(path="output/TC_02_water_counter.png")
 
 
-# Тест для снимка скриншота счетчика энергии
+@allure.feature('Страница экологического воздействия')
+@allure.story('Скриншот счетчика энергии')
 def test_energy_counter_screenshot(page):
-    eco_page = EcoImpactPage(page)
-    eco_page.go_to(ECO_IMPACT_URL)
-    energy_counter = eco_page.get_energy_counter()
-    assert energy_counter, "The energy counter element was not found on the page."
-    energy_counter.screenshot(path="output/TC_03_energy_counter.png")
+    with allure.step("Переход на страницу экологического воздействия"):
+        eco_page = EcoImpactPage(page)
+        eco_page.go_to(ECO_IMPACT_URL)
+    with allure.step("Получение счетчика энергии"):
+        energy_counter = eco_page.get_energy_counter()
+        assert energy_counter, "The energy counter element was not found on the page."
+    with allure.step("Создание скриншота счетчика энергии"):
+        energy_counter.screenshot(path="output/TC_03_energy_counter.png")
 
 
 # Функция для чтения данных для мокирования из файла
