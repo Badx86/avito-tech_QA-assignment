@@ -38,3 +38,30 @@ def page(context):
     page = context.new_page()
     yield page
     page.close()
+
+    # Add this import to use allure specific features
+    import allure
+
+    # Импортируем allure для использования его функций
+    import allure
+
+    # Используем хук Allure для добавления информации, такой как скриншоты и логи
+    @pytest.hookimpl(tryfirst=True, hookwrapper=True)
+    def pytest_runtest_makereport(item, call):
+        outcome = yield
+        report = outcome.get_result()
+        if report.when == "call" and report.failed:
+            mode = "a" if os.path.exists("failure_logs.txt") else "w"
+            try:
+                with open("failure_logs.txt", mode) as f:
+                    if "page" in item.fixturenames:
+                        web_page = item.funcargs["page"]
+                        screenshot_path = f"output/{report.nodeid.replace('::', '_')}_failed.png"
+                        web_page.screenshot(path=screenshot_path)
+                        f.write(f"Скриншот: {screenshot_path}\n")
+                        allure.attach.file(screenshot_path, name="Скриншот при ошибке",
+                                           attachment_type=allure.attachment_type.PNG)
+                    f.write(f"{report.nodeid} :: {report.longrepr}\n")
+            except Exception as e:
+                print(f"Ошибка при записи логов ошибок: {str(e)}")
+
