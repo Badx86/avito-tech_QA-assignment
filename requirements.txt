@@ -3,3 +3,4 @@ playwright
 pytest-xdist
 pytest-sugar
 black
+allure-pytest
