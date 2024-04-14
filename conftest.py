@@ -1,7 +1,6 @@
 from playwright.sync_api import sync_playwright
 import pytest
 import os
-import allure
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -22,7 +21,7 @@ def playwright():
 
 @pytest.fixture(scope="function")
 def browser(playwright):
-    browser = playwright.chromium.launch(headless=False)  # Запуск браузера
+    browser = playwright.chromium.launch(headless=True)  # Запуск браузера
     yield browser
     browser.close()
 
@@ -39,4 +38,3 @@ def page(context):
     page = context.new_page()
     yield page
     page.close()
-
