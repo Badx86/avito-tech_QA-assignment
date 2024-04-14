@@ -20,10 +20,17 @@ def playwright():
 
 
 @pytest.fixture(scope="function")
-def browser(playwright):
-    browser = playwright.chromium.launch(headless=True)  # Запуск браузера
-    yield browser
-    browser.close()
+def browser():
+    print('\nstart browser...')
+    with sync_playwright() as p:
+        # Выбираем тип браузера, например, можно использовать p.firefox или p.webkit
+        browser = p.chromium.launch(
+            headless=False if 'CI' not in os.environ else True, # Если CI в окружении, запускаем в headless режиме
+            args=['--no-sandbox', '--disable-dev-shm-usage'] if 'CI' in os.environ else []
+        )
+        yield browser
+        print('\nquit browser...')
+        browser.close()
 
 
 @pytest.fixture(scope="function")
